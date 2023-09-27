@@ -49,16 +49,23 @@ private:
     int currentLine;
     bool bufferDirty;
     string currentFilename;
+    // Helper function to display error messages
 
     void DisplayError(const string &message);
+    // Helper function to save the buffer to a file
+
     bool SaveBufferToFile(const string &filename);
+    // Helper function to list lines between start and end line numbers
+
     void ListLines(int startLine, int endLine);
 };
 
+// Saves the buffer to the specified file or the current filename.
 void TextEditor::W(const string &filename)
 {
     if (!filename.empty())
     {
+
         if (SaveBufferToFile(filename))
         {
             currentFilename = filename;
@@ -86,8 +93,10 @@ void TextEditor::W(const string &filename)
     }
 }
 
+// Moves the current line to the specified line number.
 void TextEditor::J(int lineNumber)
 {
+
     if (lineNumber == 0)
     {
         currentLine = 0;
@@ -105,6 +114,7 @@ void TextEditor::J(int lineNumber)
         DisplayError("Invalid line number.");
     }
 }
+// Inserts text at the beginning of the current line.
 
 void TextEditor::I(const string &text)
 {
@@ -118,6 +128,7 @@ void TextEditor::I(const string &text)
         DisplayError("Invalid current line.");
     }
 }
+// Lists lines based on given start and end line numbers.
 
 void TextEditor::L(int startLine, int endLine)
 {
@@ -151,6 +162,7 @@ void TextEditor::L(int startLine, int endLine)
         DisplayError("Invalid line numbers.");
     }
 }
+// Deletes lines based on given start and end line numbers.
 
 void TextEditor::D(int startLine, int endLine)
 {
@@ -170,6 +182,7 @@ void TextEditor::D(int startLine, int endLine)
         DisplayError("Invalid line numbers.");
     }
 }
+// Appends text after the current line or inserts an empty line.
 
 void TextEditor::A(const string &text)
 {
@@ -191,6 +204,7 @@ void TextEditor::A(const string &text)
         DisplayError("Invalid current line.");
     }
 }
+// Checks if the buffer has been modified and offers to save changes then closes the executable.
 
 bool TextEditor::Q()
 {
