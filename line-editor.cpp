@@ -41,7 +41,7 @@ public:
     void I(const string &text = "");
     void L(int startLine = 0, int endLine = -1);
     void D(int startLine = -1, int endLine = -1);
-    void A(const std::string &text = "");
+    void A(const string &text = "");
     bool Q();
 
 private:
@@ -283,9 +283,9 @@ int main(int argc, char *argv[])
         }
         else if (command == "A")
         { // Added "A" command
-            std::string text;
-            std::cin.ignore(); // Consume the newline character
-            std::getline(std::cin, text);
+            string text;
+            cin.ignore(); // Consume the newline character
+            getline(cin, text);
             editor.A(text);
         }
         else if (command == "Q")
